@@ -1,0 +1,70 @@
+{
+  "course": "javascript-fundamentals",
+  "language": "javascript",
+  "language_id": 1063,
+  "entrypoint": "main.js",
+  "version": 1,
+  "content_hash": "12eabb4924faf1a2",
+  "lessons": [
+    {
+      "slug": "hello-world",
+      "tests_hash": "d42573f1c55b"
+    },
+    {
+      "slug": "variables-let-and-const",
+      "tests_hash": "b93fb03a98fe"
+    },
+    {
+      "slug": "numbers-and-math",
+      "tests_hash": "4a72c0d95452"
+    },
+    {
+      "slug": "string-basics",
+      "tests_hash": "d0fe7d76e220"
+    },
+    {
+      "slug": "template-literals",
+      "tests_hash": "32deefd476f8"
+    },
+    {
+      "slug": "conditionals-if-else",
+      "tests_hash": "c81391482b0d"
+    },
+    {
+      "slug": "loops-for-and-while",
+      "tests_hash": "8cdc6f3d880b"
+    },
+    {
+      "slug": "function-declarations",
+      "tests_hash": "efaabada4a2a"
+    },
+    {
+      "slug": "arrow-functions",
+      "tests_hash": "d92ff34b943b"
+    },
+    {
+      "slug": "arrays",
+      "tests_hash": "b0c63be4adfb"
+    },
+    {
+      "slug": "objects",
+      "tests_hash": "ff2b140e7b9e"
+    },
+    {
+      "slug": "map-filter-reduce",
+      "tests_hash": "601ba35f0c0b"
+    },
+    {
+      "slug": "destructuring",
+      "tests_hash": "0a36facf15e3"
+    },
+    {
+      "slug": "equality-coercion",
+      "tests_hash": "fd92ddb179bb"
+    },
+    {
+      "slug": "es-modules",
+      "tests_hash": "8a4fb435ce1f"
+    }
+  ]
+}
