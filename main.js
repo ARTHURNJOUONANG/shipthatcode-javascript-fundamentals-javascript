@@ -1,16 +1,10 @@
-const [month, year] = require('fs')
-  .readFileSync(0, 'utf-8')
-  .trim()
-  .split(/\r?\n/)
-  .map(Number);
+const triple = (n) => n * 3;
+const subtract = (by) => (n) => n - by;
+const compose = (f, g) => (n) => f(g(n));
 
-function isLeapYear(year) {
-  return year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
-}
+const n = Number(require('fs').readFileSync(0, 'utf-8').trim());
+const lower = compose(subtract(3), triple);
+const upper = compose(subtract(1), triple);
 
-function daysInMonth(month, year) {
-  const days = [31, isLeapYear(year) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-  return days[month - 1];
-}
-
-console.log(daysInMonth(month, year));
+console.log(lower(n));
+console.log(upper(n));
