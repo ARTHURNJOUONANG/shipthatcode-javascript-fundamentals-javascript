@@ -1,8 +1,10 @@
-const fields = require('fs').readFileSync(0, 'utf-8').trim().split(',');
-const [name, age, city = 'unknown', favourite = 'none', ...rest] = fields;
+const kept = require('fs')
+  .readFileSync(0, 'utf-8')
+  .trim()
+  .split(/\s+/)
+  .filter((token) => {
+    const value = Number(token);
+    return Number.isFinite(value) && value > 0;
+  });
 
-console.log(`name: ${name}`);
-console.log(`age: ${age}`);
-console.log(`city: ${city}`);
-console.log(`favourite: ${favourite}`);
-console.log(`more: ${rest.length}`);
+console.log(kept.length === 0 ? 'none' : kept.join(' '));
