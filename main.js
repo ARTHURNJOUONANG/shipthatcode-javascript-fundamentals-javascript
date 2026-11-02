@@ -1,15 +1,13 @@
-const lines = require('fs').readFileSync(0, 'utf-8').trim().split(/\r?\n/);
-const count = Number(lines[0]);
-const dictionary = {};
+const scores = require('fs')
+  .readFileSync(0, 'utf-8')
+  .trim()
+  .split(/\s+/)
+  .map((token) => Number(token.split(':')[1]))
+  .filter((score) => score >= 50);
 
-for (let i = 1; i <= count; i++) {
-  const [from, to] = lines[i].split(' ');
-  dictionary[from] = to;
+if (scores.length === 0) {
+  console.log('none');
+} else {
+  const total = scores.reduce((sum, score) => sum + score, 0);
+  console.log(Math.floor(total / scores.length));
 }
-
-const sentence = lines[count + 1];
-const translated = sentence.split(' ').map((word) =>
-  Object.prototype.hasOwnProperty.call(dictionary, word) ? dictionary[word] : word
-);
-
-console.log(translated.join(' '));
