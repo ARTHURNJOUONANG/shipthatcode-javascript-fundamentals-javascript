@@ -1,18 +1,16 @@
-let n = Number(require('fs').readFileSync(0, 'utf-8').trim());
-let steps = 0;
-let best = n;
+const [month, year] = require('fs')
+  .readFileSync(0, 'utf-8')
+  .trim()
+  .split(/\r?\n/)
+  .map(Number);
 
-while (n !== 1) {
-  if (n % 2 === 0) {
-    n = n / 2;
-  } else {
-    n = 3 * n + 1;
-  }
-  steps = steps + 1;
-  if (n > best) {
-    best = n;
-  }
+function isLeapYear(year) {
+  return year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
 }
 
-console.log(steps);
-console.log(best);
+function daysInMonth(month, year) {
+  const days = [31, isLeapYear(year) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  return days[month - 1];
+}
+
+console.log(daysInMonth(month, year));
