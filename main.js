@@ -1,10 +1,13 @@
-const triple = (n) => n * 3;
-const subtract = (by) => (n) => n - by;
-const compose = (f, g) => (n) => f(g(n));
+const nums = require('fs')
+  .readFileSync(0, 'utf-8')
+  .trim()
+  .split(/\s+/)
+  .map(Number);
 
-const n = Number(require('fs').readFileSync(0, 'utf-8').trim());
-const lower = compose(subtract(3), triple);
-const upper = compose(subtract(1), triple);
+nums.sort((a, b) => a - b);
 
-console.log(lower(n));
-console.log(upper(n));
+const mid = Math.floor(nums.length / 2);
+const median = nums.length % 2 === 1 ? nums[mid] : (nums[mid - 1] + nums[mid]) / 2;
+
+console.log(nums.join(' '));
+console.log(median);
