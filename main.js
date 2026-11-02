@@ -1,13 +1,18 @@
-const age = Number(require('fs').readFileSync(0, 'utf-8').trim());
+let n = Number(require('fs').readFileSync(0, 'utf-8').trim());
+let steps = 0;
+let best = n;
 
-if (age < 0 || age > 120) {
-  console.log('invalid');
-} else if (age < 13) {
-  console.log('child');
-} else if (age < 20) {
-  console.log('teen');
-} else if (age < 65) {
-  console.log('adult');
-} else {
-  console.log('senior');
+while (n !== 1) {
+  if (n % 2 === 0) {
+    n = n / 2;
+  } else {
+    n = 3 * n + 1;
+  }
+  steps = steps + 1;
+  if (n > best) {
+    best = n;
+  }
 }
+
+console.log(steps);
+console.log(best);
