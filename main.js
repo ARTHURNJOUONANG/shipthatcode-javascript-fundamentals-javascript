@@ -1,13 +1,8 @@
-const scores = require('fs')
-  .readFileSync(0, 'utf-8')
-  .trim()
-  .split(/\s+/)
-  .map((token) => Number(token.split(':')[1]))
-  .filter((score) => score >= 50);
+const fields = require('fs').readFileSync(0, 'utf-8').trim().split(',');
+const [name, age, city = 'unknown', favourite = 'none', ...rest] = fields;
 
-if (scores.length === 0) {
-  console.log('none');
-} else {
-  const total = scores.reduce((sum, score) => sum + score, 0);
-  console.log(Math.floor(total / scores.length));
-}
+console.log(`name: ${name}`);
+console.log(`age: ${age}`);
+console.log(`city: ${city}`);
+console.log(`favourite: ${favourite}`);
+console.log(`more: ${rest.length}`);
